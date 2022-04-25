@@ -12,4 +12,5 @@ public class Jogador {
 	private double altura;
 	private double peso;
 	private String img;
+	
 }
