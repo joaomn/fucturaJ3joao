@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.fuctura.model.Jogador;
 import br.com.fuctura.repository.JogadorRepository;
@@ -16,9 +18,22 @@ public class JogadorController {
 
 	@Autowired
 	JogadorRepository repository;
-
-	@GetMapping("/jogador/cadastrar")
+	
+	@Autowired
+	Jogador jog;
+	
+	
+	@RequestMapping(value= "/jogador/cadastrar", method=RequestMethod.GET)
 	public String cadstro() {
+		
+		
+		return "cadastrar";
+	}
+
+	@RequestMapping(value= "/jogador/cadastrar", method=RequestMethod.POST)
+	public String cadstro(Jogador jogador) {
+		
+		repository.save(jogador);
 		return "cadastrar";
 	}
 
@@ -59,5 +74,11 @@ public class JogadorController {
 	@GetMapping("/jogador/atualizar")
 	public String atualizar() {
 		return "atualizar";
+	}
+	
+	@GetMapping("/jogador/teste")
+	public String testeBean() {
+		System.out.println(jog.getNome());
+		return "outra";
 	}
 }

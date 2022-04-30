@@ -12,7 +12,7 @@ public class OlaMundoController {
 	@GetMapping("/inicial")
 	public String getInicial(Model model) {
 
-		Jogador j = new Jogador();
+		Jogador j = new Jogador(null);
 
 		j.setNome("Messi");
 		j.setAltura(1.78);

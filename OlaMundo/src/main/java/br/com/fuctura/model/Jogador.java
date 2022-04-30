@@ -24,5 +24,14 @@ public class Jogador {
 	private double altura;
 	private double peso;
 	private String img;
+	private String posicao;
+	
+	
+	public Jogador(String nome) {
+		System.out.println("Construindo uma instancia do Jogador: " + nome);
+		this.nome = nome;
+	}
+	
+	
 	
 }
